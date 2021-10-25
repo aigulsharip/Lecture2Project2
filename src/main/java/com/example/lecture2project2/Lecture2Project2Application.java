@@ -30,6 +30,10 @@ public class Lecture2Project2Application {
         String client2 = "Bob";
         System.out.println("Email of address of " + client2 + " is: " + productDAO.findEmailOfClient(client2));
 
+        System.out.println("*****************************************");
+
+        productDAO.checkAfterAdvice();
+
         context.close();
 
     }

@@ -5,7 +5,7 @@ import com.example.lecture2project2.dao.JdbcProductDao;
 import com.example.lecture2project2.dao.ProductDAO;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class TestingAOP {
+public class TestingJDBCAndAOP {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
 
@@ -15,10 +15,15 @@ public class TestingAOP {
         System.out.println("The name of product with 1st ID " +
                 productDAO.findProductById(1));
 
+        String client = "Peter";
+        System.out.println(client + " submitted * " + productDAO.findProductByClientName("Peter") + " * for repair or other service");
+
+        String client2 = "Bob";
+        System.out.println("Email of address of " + client2 + " is: " + productDAO.findEmailOfClient(client2));
+
         System.out.println("***************************");
 
-
-        System.out.println(productDAO.checkAroundAdvice());
+        System.out.println(productDAO.checkAfterAdvice());
 
         context.close();
 
